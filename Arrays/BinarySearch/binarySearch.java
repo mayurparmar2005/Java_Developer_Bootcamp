@@ -5,17 +5,17 @@ public class binarySearch {
     public static int Search(int n,int[] arr){
 
         int low = 0;
-        int high = arr.length;
-        int mid;
-        while(low < high){
-            mid = ( low + high ) / 2;
-            if(n == arr[mid]){
-                return mid;
-            }
-            else if( n < arr[mid]){
+        int high = arr.length - 1;
+
+        while(low <= high){
+            int mid = low + (high - low) / 2;
+
+            if( n < arr[mid]){
                 high = mid-1;
             } else if (n > arr[mid]) {
                 low = mid+1;
+            }else{
+                return mid;
             }
         }
         return -1;
