@@ -1,6 +1,4 @@
 package Arrays.BinarySearch;
-
-
 // Given a sorted char[],
 // find the smallest character that is strictly greater than the target.
 // If no greater character exists, wrap around to the first character.
@@ -14,9 +12,6 @@ public class CeilingChar {
         int low = 0;
         int high = arr.length - 1;
 
-//        if(target >= arr[arr.length-1]){
-//            return arr[0];
-//        }
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (target < arr[mid]) {

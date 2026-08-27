@@ -1,37 +1,68 @@
 package Arrays.BinarySearch;
 
+import java.util.Scanner;
+
 public class FirstNLastPositionOfNumber {
-    static int[] FirstNLastOccurrence(int[] arr, int target){
+    static int[] SearchRange(int[] nums, int target){
 
-        int low = 0;
-        int high = arr.length -1;
+        if(nums.length == 0){
+            return new int[]{-1,-1};
+        }
+
         int[] ans = new int[2];
-        while(low <= high){
+
+        // First Occurrence
+        int low = 0;
+        int high = nums.length -1;
+        while(low <= high ){
             int mid = low + (high - low) / 2;
-            if(target < arr[mid]){
-                high = mid - 1;
-            }else {
+            if(target > nums[mid]){
                 low = mid + 1;
-            }  ans[0] = mid ;
-        }
-
-        int start = 0 , end = arr.length;
-        while(start <= end){
-            int mid = start + (end - start) / 2;
-            if(target < arr[mid]){
-                end = mid - 1;
-            }else if(target > arr[mid]){
-                start = mid + 1;
+            }else{
+                high = mid -1;
             }
-            ans[1] = low;
-            return ans;
+        }
+        if(low < nums.length && nums[low] == target){
+            ans[0] = low;
+        }else {
+            ans[0] =-1;
         }
 
-        return new int[]{-1,-1};
+        //Last Occurrence
+        low=0;
+        high = nums.length -1;
+        while(low <= high ){
+            int mid = low + (high - low) / 2;
+            if(target < nums[mid]){
+                high = mid - 1;
+            }else if(target > nums[mid]){
+                low = mid +1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        if(high >= 0 && nums[high] == target){
+            ans[1]=high;
+        }else{
+            ans[1] = -1;
+        }
+
+        return ans;
     }
+
     static void main(String[] args) {
-        int[] nums = {3,5,7,7,7,7,8,8,10};
-        int[] answer = FirstNLastOccurrence(nums,7);
+
+        Scanner sc = new Scanner(System.in);
+        int[] nums = {1,3,5,5,5,6,7,7,7,7,8,8,10};
+        for(int x:nums){
+            System.out.print(x+" ");
+        }
+        System.out.println();
+        System.out.print("Enter Number to find Its Range : ");
+        int n = sc.nextInt();
+
+        int[] answer = SearchRange(nums,n);
         System.out.println("["+answer[0]+","+answer[1]+"]");
+
     }
 }

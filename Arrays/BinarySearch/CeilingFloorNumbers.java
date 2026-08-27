@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static Arrays.LinearSearch.linearSearch.PrintArray;
 
-public class CeilingNumber {
+public class CeilingFloorNumbers {
 
     static int floorNumber(int[] arr, int target){
 
