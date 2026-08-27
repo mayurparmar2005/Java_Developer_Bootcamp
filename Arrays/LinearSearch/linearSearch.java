@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class linearSearch {
 
-    static void PrintArray(int[] arr){
+    public static void PrintArray(int[] arr){
         for(int x : arr){
             System.out.print(x+" ");
         }
