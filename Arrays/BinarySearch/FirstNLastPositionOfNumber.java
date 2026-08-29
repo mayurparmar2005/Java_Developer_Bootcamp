@@ -1,5 +1,7 @@
 package Arrays.BinarySearch;
 
+// Find First and Last Position of Element in Sorted Array
+
 import java.util.Scanner;
 
 public class FirstNLastPositionOfNumber {
