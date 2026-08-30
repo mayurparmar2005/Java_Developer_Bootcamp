@@ -29,8 +29,6 @@ public class InfiniteArray {
         return -1;
 
     }
-
-
     static void main(String[] args) {
         int[] nums = {2,4,7,9,14,17,19,25,28,32,34,48,50,57,59,78,89};
         System.out.println("Answer : "+findRange(nums,50) );
